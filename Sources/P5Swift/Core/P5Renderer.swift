@@ -24,6 +24,8 @@ class P5Renderer {
                 background(bgColor)
             case .line(let x1, let y1, let x2, let y2):
                 line(x1, y1, x2, y2)
+            case .rect(let x, let y, let w, let h):
+                rect(x, y, w, h)
             }
         }
     }
@@ -48,5 +50,11 @@ extension P5Renderer {
         context.addLine(to: .init(x: x2, y: y2))
         context.setLineWidth(1.0)
         context.strokePath()
+    }
+    
+    private func rect(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) {
+        guard let context else { return }
+        context.setFillColor(UIColor.black.cgColor)
+        context.fill([.init(x: x, y: y, width: w, height: h)])
     }
 }

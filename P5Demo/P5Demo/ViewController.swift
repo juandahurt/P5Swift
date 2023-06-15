@@ -26,5 +26,6 @@ class Test: P5Sketch {
         aux += 0.1
         background(UIColor.white.cgColor)
         line(50, 50 + aux, 200, 350)
+        rect(50, 450 - aux, 100, 120)
     }
 }

@@ -41,19 +41,30 @@ open class P5Sketch {
 }
 
 public extension P5Sketch {
-    /// <#Description#>
-    /// - Parameter bgColor: <#bgColor description#>
+    /// Sets the color for the canvas background
+    /// - Parameter bgColor: The desired color
     func background(_ bgColor: CGColor) {
         internalView.addOperation(.background(bgColor))
     }
     
-    /// <#Description#>
+    /// Draws a line on the canvas
     /// - Parameters:
-    ///   - x1: <#x1 description#>
-    ///   - y1: <#y1 description#>
-    ///   - x2: <#x2 description#>
-    ///   - y2: <#y2 description#>
+    ///   - x1: Initial x position
+    ///   - y1: Initial y position
+    ///   - x2: End x position
+    ///   - y2: End x position
     func line(_ x1: CGFloat, _ y1: CGFloat, _ x2: CGFloat, _ y2: CGFloat) {
         internalView.addOperation(.line(x1, y1, x2, y2))
+    }
+    
+    
+    /// Draws a rectangle on the canvas.
+    /// - Parameters:
+    ///   - x: Upper left x position
+    ///   - y: Upper left y position
+    ///   - w: Rectangle's width
+    ///   - h: Ractangle's height
+    func rect(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) {
+        internalView.addOperation(.rect(x, y, w, h))
     }
 }
