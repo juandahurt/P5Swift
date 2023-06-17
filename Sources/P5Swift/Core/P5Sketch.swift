@@ -67,4 +67,8 @@ public extension P5Sketch {
     func rect(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) {
         internalView.addOperation(.rect(x, y, w, h))
     }
+    
+    func square(_ x: CGFloat, _ y: CGFloat, _ size: CGFloat) {
+        internalView.addOperation(.square(x, y, size))
+    }
 }

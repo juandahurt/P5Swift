@@ -26,6 +26,8 @@ class P5Renderer {
                 line(x1, y1, x2, y2)
             case .rect(let x, let y, let w, let h):
                 rect(x, y, w, h)
+            case .square(let x, let y, let size):
+                square(x, y, size)
             }
         }
     }
@@ -56,5 +58,11 @@ extension P5Renderer {
         guard let context else { return }
         context.setFillColor(UIColor.black.cgColor)
         context.fill([.init(x: x, y: y, width: w, height: h)])
+    }
+    
+    private func square(_ x: CGFloat, _ y: CGFloat, _ size: CGFloat) {
+        guard let context else { return }
+        context.setFillColor(UIColor.blue.cgColor)
+        context.fill([.init(x: x, y: y, width: size, height: size)])
     }
 }

@@ -11,4 +11,5 @@ enum P5Operation {
     case background(CGColor)
     case line(CGFloat, CGFloat, CGFloat, CGFloat)
     case rect(CGFloat, CGFloat, CGFloat, CGFloat)
+    case square(CGFloat, CGFloat, CGFloat)
 }
