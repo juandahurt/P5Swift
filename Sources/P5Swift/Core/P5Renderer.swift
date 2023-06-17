@@ -30,12 +30,32 @@ class P5Renderer {
                 square(x, y, size)
             case .circle(let x, let y, let r):
                 circle(x, y, r)
+            case .rotate(let angle):
+                rotate(angle)
+            case .translate(let x, let y):
+                translate(x, y)
+            case .push:
+                push()
+            case .pop:
+                pop()
             }
         }
     }
     
     func clean() {
         operations.removeAll()
+    }
+}
+
+extension P5Renderer {
+    private func push() {
+        guard let context else { return }
+        context.saveGState()
+    }
+    
+    func pop() {
+        guard let context else { return }
+        context.restoreGState()
     }
 }
 
@@ -72,5 +92,17 @@ extension P5Renderer {
         guard let context else { return }
         context.setFillColor(UIColor.red.cgColor)
         context.fillEllipse(in: .init(x: x, y: y, width: r, height: r))
+    }
+}
+
+extension P5Renderer {
+    private func rotate(_ angle: CGFloat) {
+        guard let context else { return }
+        context.rotate(by: angle)
+    }
+    
+    private func translate(_ x: CGFloat, _ y: CGFloat) {
+        guard let context else { return }
+        context.translateBy(x: x, y: y)
     }
 }

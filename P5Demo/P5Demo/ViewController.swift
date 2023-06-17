@@ -20,14 +20,35 @@ class ViewController: UIViewController {
 }
 
 class Test: P5Sketch {
-    var aux = 0.0
-    
+    let angle = CGFloat.pi / 4
+
     override func draw() {
-        aux += 0.1
         background(UIColor.white.cgColor)
-        line(50, 50 + aux, 200, 350)
-        rect(50, 450 - aux, 100, 120)
-        square(100, 100, 20)
-        circle(50, 50, 35)
+        translate(width / 2, height / 2)
+        branch(height: 100)
+        noLoop()
+    }
+    
+    func branch(height: CGFloat) {
+        line(0, 0, 0, -height)
+        translate(0, -height)
+        guard height > 5 else { return }
+//        let branches = Int.random(in: 1...4)
+//        for _ in 0..<branches {
+//            push()
+//            rotate(.random(in: -(.pi / 3)...(.pi / 4)))
+//            branch(height: height * 0.67)
+//            pop()
+//        }
+        
+        push()
+        rotate(.pi / 4)
+        branch(height: height * 0.67)
+        pop()
+        
+        push()
+        rotate(-.pi / 4)
+        branch(height: height * 0.67)
+        pop()
     }
 }

@@ -10,6 +10,12 @@ import UIKit
 open class P5Sketch {
     private var internalView: P5SketchInternalView
     
+    /// Canvas width
+    public var width: CGFloat
+    
+    /// Canvas height
+    public var height: CGFloat
+    
     /// The actual sketch view.
     ///
     /// Just add this view to your view hierarchy
@@ -26,6 +32,8 @@ open class P5Sketch {
     
     public init(ofSize size: CGSize) {
         internalView = P5SketchInternalView(size: size)
+        width = size.width
+        height = size.height
         internalView.onDraw = onInternalDraw
     }
     
@@ -33,13 +41,35 @@ open class P5Sketch {
         draw()
     }
     
-    /// Its called once the app starts
+    // Its called once the app starts
     open func setup() {}
     
     /// It gets called every frame. This is where you should perform draw operations
     open func draw() {}
 }
 
+// MARK: - Structure
+public extension P5Sketch {
+    /// <#Description#>
+    func push() {
+        internalView.addOperation(.push)
+    }
+    
+    /// <#Description#>
+    func pop() {
+        internalView.addOperation(.pop)
+    }
+    
+    func loop() {
+        internalView.loop = true
+    }
+    
+    func noLoop() {
+        internalView.loop = false
+    }
+}
+
+// MARK: - 2D primitives
 public extension P5Sketch {
     /// Sets the color for the canvas background
     /// - Parameter bgColor: The desired color
@@ -84,5 +114,23 @@ public extension P5Sketch {
     ///   - r: The radius of the circle
     func circle(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat) {
         internalView.addOperation(.circle(x, y, r))
+    }
+}
+
+
+// MARK: - Transformations
+public extension P5Sketch {
+    /// <#Description#>
+    /// - Parameter angle: <#angle description#>
+    func rotate(_ angle: CGFloat) {
+        internalView.addOperation(.rotate(angle))
+    }
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - x: <#x description#>
+    ///   - y: <#y description#>
+    func translate(_ x: CGFloat, _ y: CGFloat) {
+        internalView.addOperation(.translate(x, y))
     }
 }

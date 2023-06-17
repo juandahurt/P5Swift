@@ -10,7 +10,13 @@ import UIKit
 
 class P5SketchInternalView: UIView, P5SketchInternal {
     internal var renderer: P5Renderer
-    internal var loop: Bool = true
+    internal var loop: Bool = true {
+        didSet {
+            if !oldValue && loop {
+                setNeedsDisplay()
+            }
+        }
+    }
     
     var setup: () -> Void = {}
     var onDraw: () -> Void = {}
