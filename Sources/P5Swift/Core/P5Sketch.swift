@@ -10,6 +10,15 @@ import UIKit
 open class P5Sketch {
     private var internalView: P5SketchInternalView
     
+    /// This is used only in the demo app to identify each example. So you can ignore this.
+    public var title: String?
+    
+    /// Canvas width
+    public var width: CGFloat
+    
+    /// Canvas height
+    public var height: CGFloat
+    
     /// The actual sketch view.
     ///
     /// Just add this view to your view hierarchy
@@ -26,20 +35,57 @@ open class P5Sketch {
     
     public init(ofSize size: CGSize) {
         internalView = P5SketchInternalView(size: size)
+        width = size.width
+        height = size.height
         internalView.onDraw = onInternalDraw
+        setup()
     }
     
     private func onInternalDraw() {
         draw()
     }
     
-    /// Its called once the app starts
+    /// Its called once the sketch is initialized
     open func setup() {}
     
-    /// It gets called every frame. This is where you should perform draw operations
+    /// It gets called every frame. This is where you should perform draw operations.
     open func draw() {}
 }
 
+// MARK: - Structure
+public extension P5Sketch {
+    /// Saves the current graphics state
+    func push() {
+        internalView.addOperation(.push)
+    }
+    
+    /// Restores the graphics state to the most recently saved one
+    func pop() {
+        internalView.addOperation(.pop)
+    }
+    
+    /// Starts the running loop if it's stopped
+    ///
+    /// If you call this method and the draw loop is running, it won't have any effect
+    func loop() {
+        internalView.loop = true
+    }
+    
+    /// Stops the draw loop
+    func noLoop() {
+        internalView.loop = false
+    }
+    
+    /// It calls the `draw()` method one single time.
+    ///
+    /// Notice that it only makes sense to call this method when the draw loop is not runnig. If it gets called when the run loop
+    /// is running, it won't have any effect.
+    func redraw() {
+        internalView.userWantsRedraw = true
+    }
+}
+
+// MARK: - 2D primitives
 public extension P5Sketch {
     /// Sets the color for the canvas background
     /// - Parameter bgColor: The desired color
@@ -84,5 +130,23 @@ public extension P5Sketch {
     ///   - r: The radius of the circle
     func circle(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat) {
         internalView.addOperation(.circle(x, y, r))
+    }
+}
+
+
+// MARK: - Transformations
+public extension P5Sketch {
+    /// Applies a rotation transformation to the current transformation matrix using the provided angle (in radians).
+    /// - Parameter angle: The angle to rotate the current transformation
+    func rotate(_ angle: CGFloat) {
+        internalView.addOperation(.rotate(angle))
+    }
+    
+    /// Displaces the origin of the coordinate system.
+    /// - Parameters:
+    ///   - x: The translation in the x axis
+    ///   - y: The translation in the x axis
+    func translate(_ x: CGFloat, _ y: CGFloat) {
+        internalView.addOperation(.translate(x, y))
     }
 }

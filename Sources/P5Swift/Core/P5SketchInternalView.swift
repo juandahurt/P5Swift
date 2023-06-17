@@ -10,7 +10,20 @@ import UIKit
 
 class P5SketchInternalView: UIView, P5SketchInternal {
     internal var renderer: P5Renderer
-    internal var loop: Bool = true
+    internal var loop: Bool = true {
+        didSet {
+            if !oldValue && loop {
+                setNeedsDisplay()
+            }
+        }
+    }
+    internal var userWantsRedraw = false {
+        didSet {
+            if !oldValue && userWantsRedraw {
+                setNeedsDisplay()
+            }
+        }
+    }
     
     var setup: () -> Void = {}
     var onDraw: () -> Void = {}
@@ -28,7 +41,7 @@ class P5SketchInternalView: UIView, P5SketchInternal {
     
     public override func draw(_ rect: CGRect) {
         renderer.context = UIGraphicsGetCurrentContext()
-        if loop {
+        if loop || userWantsRedraw {
             onDraw()
             renderer.drawOperations()
             // Curious... if I call the `setNeedsDisplay` function without
@@ -37,6 +50,7 @@ class P5SketchInternalView: UIView, P5SketchInternal {
                 guard let self else { return }
                 self.setNeedsDisplay()
             }
+            userWantsRedraw = false
         }
         renderer.clean()
     }

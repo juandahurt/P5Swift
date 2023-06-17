@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4CBF2C2A3E23F700AACA80 /* FractalOrganicTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4CBF2B2A3E23F700AACA80 /* FractalOrganicTree.swift */; };
 		2F74E08C2A38FD9200ED173F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F74E08B2A38FD9200ED173F /* AppDelegate.swift */; };
 		2F74E08E2A38FD9200ED173F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F74E08D2A38FD9200ED173F /* SceneDelegate.swift */; };
 		2F74E0902A38FD9200ED173F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F74E08F2A38FD9200ED173F /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4CBF2B2A3E23F700AACA80 /* FractalOrganicTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractalOrganicTree.swift; sourceTree = "<group>"; };
 		2F74E0882A38FD9200ED173F /* P5Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P5Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F74E08B2A38FD9200ED173F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F74E08D2A38FD9200ED173F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4CBF2A2A3E23DE00AACA80 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				2F4CBF2B2A3E23F700AACA80 /* FractalOrganicTree.swift */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
 		2F74E07F2A38FD9200ED173F = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 		2F74E08A2A38FD9200ED173F /* P5Demo */ = {
 			isa = PBXGroup;
 			children = (
+				2F4CBF2A2A3E23DE00AACA80 /* Examples */,
 				2F74E08B2A38FD9200ED173F /* AppDelegate.swift */,
 				2F74E08D2A38FD9200ED173F /* SceneDelegate.swift */,
 				2F74E08F2A38FD9200ED173F /* ViewController.swift */,
@@ -152,6 +163,7 @@
 				2F74E0902A38FD9200ED173F /* ViewController.swift in Sources */,
 				2F74E08C2A38FD9200ED173F /* AppDelegate.swift in Sources */,
 				2F74E08E2A38FD9200ED173F /* SceneDelegate.swift in Sources */,
+				2F4CBF2C2A3E23F700AACA80 /* FractalOrganicTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
