@@ -28,6 +28,8 @@ class P5Renderer {
                 rect(x, y, w, h)
             case .square(let x, let y, let size):
                 square(x, y, size)
+            case .circle(let x, let y, let r):
+                circle(x, y, r)
             }
         }
     }
@@ -64,5 +66,11 @@ extension P5Renderer {
         guard let context else { return }
         context.setFillColor(UIColor.blue.cgColor)
         context.fill([.init(x: x, y: y, width: size, height: size)])
+    }
+    
+    private func circle(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat) {
+        guard let context else { return }
+        context.setFillColor(UIColor.red.cgColor)
+        context.fillEllipse(in: .init(x: x, y: y, width: r, height: r))
     }
 }

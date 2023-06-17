@@ -68,7 +68,21 @@ public extension P5Sketch {
         internalView.addOperation(.rect(x, y, w, h))
     }
     
+    /// Draws a square on the canvas.
+    /// - Parameters:
+    ///   - x: The x position
+    ///   - y: The y position
+    ///   - size: The width and hight of the square
     func square(_ x: CGFloat, _ y: CGFloat, _ size: CGFloat) {
         internalView.addOperation(.square(x, y, size))
+    }
+    
+    /// Draws a circle on the canvas
+    /// - Parameters:
+    ///   - x: The x position
+    ///   - y: The y position
+    ///   - r: The radius of the circle
+    func circle(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat) {
+        internalView.addOperation(.circle(x, y, r))
     }
 }

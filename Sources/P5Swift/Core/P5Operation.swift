@@ -12,4 +12,5 @@ enum P5Operation {
     case line(CGFloat, CGFloat, CGFloat, CGFloat)
     case rect(CGFloat, CGFloat, CGFloat, CGFloat)
     case square(CGFloat, CGFloat, CGFloat)
+    case circle(CGFloat, CGFloat, CGFloat)
 }

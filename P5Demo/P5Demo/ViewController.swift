@@ -28,5 +28,6 @@ class Test: P5Sketch {
         line(50, 50 + aux, 200, 350)
         rect(50, 450 - aux, 100, 120)
         square(100, 100, 20)
+        circle(50, 50, 35)
     }
 }
