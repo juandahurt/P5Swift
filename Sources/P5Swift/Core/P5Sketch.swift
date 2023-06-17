@@ -54,26 +54,32 @@ open class P5Sketch {
 
 // MARK: - Structure
 public extension P5Sketch {
-    /// <#Description#>
+    /// Saves the current graphics state
     func push() {
         internalView.addOperation(.push)
     }
     
-    /// <#Description#>
+    /// Restores the graphics state to the most recently saved one
     func pop() {
         internalView.addOperation(.pop)
     }
     
-    /// <#Description#>
+    /// Starts the running loop if it's stopped
+    ///
+    /// If you call this method and the draw loop is running, it won't have any effect
     func loop() {
         internalView.loop = true
     }
     
-    /// <#Description#>
+    /// Stops the draw loop
     func noLoop() {
         internalView.loop = false
     }
     
+    /// It calls the `draw()` method one single time.
+    ///
+    /// Notice that it only makes sense to call this method when the draw loop is not runnig. If it gets called when the run loop
+    /// is running, it won't have any effect.
     func redraw() {
         internalView.userWantsRedraw = true
     }
@@ -130,16 +136,16 @@ public extension P5Sketch {
 
 // MARK: - Transformations
 public extension P5Sketch {
-    /// <#Description#>
-    /// - Parameter angle: <#angle description#>
+    /// Applies a rotation transformation to the current transformation matrix using the provided angle (in radians).
+    /// - Parameter angle: The angle to rotate the current transformation
     func rotate(_ angle: CGFloat) {
         internalView.addOperation(.rotate(angle))
     }
     
-    /// <#Description#>
+    /// Displaces the origin of the coordinate system.
     /// - Parameters:
-    ///   - x: <#x description#>
-    ///   - y: <#y description#>
+    ///   - x: The translation in the x axis
+    ///   - y: The translation in the x axis
     func translate(_ x: CGFloat, _ y: CGFloat) {
         internalView.addOperation(.translate(x, y))
     }
