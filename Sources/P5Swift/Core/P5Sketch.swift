@@ -10,6 +10,9 @@ import UIKit
 open class P5Sketch {
     private var internalView: P5SketchInternalView
     
+    /// This is used only in the demo app to identify each example. So you can ignore this.
+    public var title: String?
+    
     /// Canvas width
     public var width: CGFloat
     
@@ -35,16 +38,17 @@ open class P5Sketch {
         width = size.width
         height = size.height
         internalView.onDraw = onInternalDraw
+        setup()
     }
     
     private func onInternalDraw() {
         draw()
     }
     
-    // Its called once the app starts
+    /// Its called once the sketch is initialized
     open func setup() {}
     
-    /// It gets called every frame. This is where you should perform draw operations
+    /// It gets called every frame. This is where you should perform draw operations.
     open func draw() {}
 }
 
@@ -60,12 +64,18 @@ public extension P5Sketch {
         internalView.addOperation(.pop)
     }
     
+    /// <#Description#>
     func loop() {
         internalView.loop = true
     }
     
+    /// <#Description#>
     func noLoop() {
         internalView.loop = false
+    }
+    
+    func redraw() {
+        internalView.userWantsRedraw = true
     }
 }
 
