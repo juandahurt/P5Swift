@@ -24,7 +24,7 @@ class P5SketchInternalView: UIView, P5SketchInternal {
             }
         }
     }
-    internal var framesPerSecond = 5.0
+    internal var framesPerSecond = 30.0
     
     var setup: () -> Void = {}
     var onDraw: () -> Void = {}

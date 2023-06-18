@@ -52,6 +52,15 @@ open class P5Sketch {
     open func draw() {}
 }
 
+// MARK: - Environment
+public extension P5Sketch {
+    /// Sets the number of frames to be displayed every second.
+    /// - Parameter fps: Frames per second
+    func frameRate(_ fps: Double) {
+        internalView.framesPerSecond = fps
+    }
+}
+
 // MARK: - Structure
 public extension P5Sketch {
     /// Saves the current graphics state
