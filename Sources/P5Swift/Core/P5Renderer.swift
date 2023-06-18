@@ -20,6 +20,8 @@ class P5Renderer {
     func drawOperations() {
         for operation in operations {
             switch operation {
+            case .fill(let color):
+                fill(color)
             case .background(let bgColor):
                 background(bgColor)
             case .line(let x1, let y1, let x2, let y2):
@@ -44,6 +46,12 @@ class P5Renderer {
     
     func clean() {
         operations.removeAll()
+    }
+}
+
+extension P5Renderer {
+    private func fill(_ color: CGColor) {
+        P5DrawingSettings.instance.fillColor = color
     }
 }
 
@@ -78,7 +86,7 @@ extension P5Renderer {
     
     private func rect(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) {
         guard let context else { return }
-        context.setFillColor(UIColor.black.cgColor)
+        context.setFillColor(P5DrawingSettings.instance.fillColor)
         context.fill([.init(x: x, y: y, width: w, height: h)])
     }
     

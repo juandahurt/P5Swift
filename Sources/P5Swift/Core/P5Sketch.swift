@@ -150,3 +150,10 @@ public extension P5Sketch {
         internalView.addOperation(.translate(x, y))
     }
 }
+
+// MARK: - Settings
+public extension P5Sketch {
+    func fill(_ color: CGColor) {
+        internalView.addOperation(.fill(color))
+    }
+}
