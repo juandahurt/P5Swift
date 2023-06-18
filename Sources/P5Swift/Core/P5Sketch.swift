@@ -52,6 +52,15 @@ open class P5Sketch {
     open func draw() {}
 }
 
+// MARK: - Environment
+public extension P5Sketch {
+    /// Sets the number of frames to be displayed every second.
+    /// - Parameter fps: Frames per second
+    func frameRate(_ fps: Double) {
+        internalView.framesPerSecond = fps
+    }
+}
+
 // MARK: - Structure
 public extension P5Sketch {
     /// Saves the current graphics state
@@ -148,5 +157,12 @@ public extension P5Sketch {
     ///   - y: The translation in the x axis
     func translate(_ x: CGFloat, _ y: CGFloat) {
         internalView.addOperation(.translate(x, y))
+    }
+}
+
+// MARK: - Settings
+public extension P5Sketch {
+    func fill(_ color: CGColor) {
+        internalView.addOperation(.fill(color))
     }
 }

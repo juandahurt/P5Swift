@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     lazy var examples: [P5Sketch] = [
-        FractalOrganicTree(ofSize: view.frame.size)
+        FractalOrganicTree(ofSize: view.frame.size),
+        GameOfLife(ofSize: view.frame.size)
     ]
     
     override func viewDidLoad() {
@@ -43,7 +44,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        examples.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

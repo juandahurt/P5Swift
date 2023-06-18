@@ -8,6 +8,8 @@
 import CoreGraphics
 
 enum P5Operation {
+    case fill(CGColor)
+    
     case background(CGColor)
     case line(CGFloat, CGFloat, CGFloat, CGFloat)
     case rect(CGFloat, CGFloat, CGFloat, CGFloat)

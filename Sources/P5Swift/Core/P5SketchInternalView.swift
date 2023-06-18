@@ -24,6 +24,7 @@ class P5SketchInternalView: UIView, P5SketchInternal {
             }
         }
     }
+    internal var framesPerSecond = 30.0
     
     var setup: () -> Void = {}
     var onDraw: () -> Void = {}
@@ -46,7 +47,7 @@ class P5SketchInternalView: UIView, P5SketchInternal {
             renderer.drawOperations()
             // Curious... if I call the `setNeedsDisplay` function without
             // the DispatchQueue.main it won't loop
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1 / framesPerSecond) { [weak self] in
                 guard let self else { return }
                 self.setNeedsDisplay()
             }
