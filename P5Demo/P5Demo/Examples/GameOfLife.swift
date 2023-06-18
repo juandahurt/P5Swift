@@ -9,18 +9,28 @@ import UIKit
 import CoreGraphics
 import P5Swift
 
+/// The game of life!
+///
+/// This example is a game of life representation with a certain percentage of alives cells
+/// in the initial population. You can change this value updating the `alpha` variable.
+///
+/// Note that there's a variable to update the frames per second called `fps`.
 class GameOfLife: P5Sketch {
     let rows = 70
     let cols = 50
+    
+    let fps = 10.0
+    let alpha = 0.15
     
     var population: [[Cell]] = []
     
     override func setup() {
         title = "Game of life"
+        frameRate(fps)
         for _ in 0..<rows {
             var row = [Cell]()
             for _ in 0..<cols {
-                row.append(.init(state: Double.random(in: 0...1) < 0.2 ? .alive : .dead))
+                row.append(.init(state: Double.random(in: 0...1) < alpha ? .alive : .dead))
             }
             population.append(row)
         }
@@ -77,7 +87,6 @@ class GameOfLife: P5Sketch {
             newPopulation.append(newRow)
         }
         newPopulation.append([Cell](repeating: .init(state: .dead), count: rows))
-//        print(newPopulation.count, population.count)
         population = newPopulation
     }
 }
