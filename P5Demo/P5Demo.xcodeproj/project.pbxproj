@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3B5EEF2A3F764400252A0D /* Starfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B5EEE2A3F764400252A0D /* Starfield.swift */; };
 		2F4BAB9A2A3E4E4000DBA713 /* GameOfLife.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BAB992A3E4E4000DBA713 /* GameOfLife.swift */; };
 		2F4CBF2C2A3E23F700AACA80 /* FractalOrganicTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4CBF2B2A3E23F700AACA80 /* FractalOrganicTree.swift */; };
 		2F74E08C2A38FD9200ED173F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F74E08B2A38FD9200ED173F /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F3B5EEE2A3F764400252A0D /* Starfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starfield.swift; sourceTree = "<group>"; };
 		2F4BAB992A3E4E4000DBA713 /* GameOfLife.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLife.swift; sourceTree = "<group>"; };
 		2F4CBF2B2A3E23F700AACA80 /* FractalOrganicTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractalOrganicTree.swift; sourceTree = "<group>"; };
 		2F74E0882A38FD9200ED173F /* P5Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P5Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,7 @@
 			children = (
 				2F4CBF2B2A3E23F700AACA80 /* FractalOrganicTree.swift */,
 				2F4BAB992A3E4E4000DBA713 /* GameOfLife.swift */,
+				2F3B5EEE2A3F764400252A0D /* Starfield.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			files = (
 				2F4BAB9A2A3E4E4000DBA713 /* GameOfLife.swift in Sources */,
 				2F74E0902A38FD9200ED173F /* ViewController.swift in Sources */,
+				2F3B5EEF2A3F764400252A0D /* Starfield.swift in Sources */,
 				2F74E08C2A38FD9200ED173F /* AppDelegate.swift in Sources */,
 				2F74E08E2A38FD9200ED173F /* SceneDelegate.swift in Sources */,
 				2F4CBF2C2A3E23F700AACA80 /* FractalOrganicTree.swift in Sources */,
