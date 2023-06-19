@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     lazy var examples: [P5Sketch] = [
         FractalOrganicTree(ofSize: view.frame.size),
-        GameOfLife(ofSize: view.frame.size)
+        GameOfLife(ofSize: view.frame.size),
+        Starfield(ofSize: view.frame.size)
     ]
     
     override func viewDidLoad() {

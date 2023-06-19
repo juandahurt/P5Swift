@@ -98,7 +98,7 @@ extension P5Renderer {
     
     private func circle(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat) {
         guard let context else { return }
-        context.setFillColor(UIColor.red.cgColor)
+        context.setFillColor(P5DrawingSettings.instance.fillColor)
         context.fillEllipse(in: .init(x: x, y: y, width: r, height: r))
     }
 }
