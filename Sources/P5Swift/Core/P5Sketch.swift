@@ -165,4 +165,12 @@ public extension P5Sketch {
     func fill(_ color: CGColor) {
         internalView.addOperation(.fill(color))
     }
+    
+    func noFill() {
+        internalView.addOperation(.noFill)
+    }
+    
+    func stroke(_ color: CGColor) {
+        internalView.addOperation(.stroke(color))
+    }
 }

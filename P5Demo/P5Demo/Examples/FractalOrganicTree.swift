@@ -18,6 +18,7 @@ import P5Swift
 class FractalOrganicTree: P5Sketch {
     override func setup() {
         title = "Fractal 'organic' tree"
+        stroke(UIColor.black.cgColor)
     }
     
     override func draw() {
