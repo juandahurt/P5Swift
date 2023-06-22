@@ -12,4 +12,5 @@ class P5DrawingSettings {
     static let instance: P5DrawingSettings = P5DrawingSettings()
     
     var fillColor: CGColor = UIColor.black.cgColor
+    var strokeColor: CGColor = UIColor.clear.cgColor
 }

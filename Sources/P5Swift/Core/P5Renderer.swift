@@ -22,6 +22,10 @@ class P5Renderer {
             switch operation {
             case .fill(let color):
                 fill(color)
+            case .noFill:
+                noFill()
+            case .stroke(let color):
+                stroke(color)
             case .background(let bgColor):
                 background(bgColor)
             case .line(let x1, let y1, let x2, let y2):
@@ -53,6 +57,14 @@ extension P5Renderer {
     private func fill(_ color: CGColor) {
         P5DrawingSettings.instance.fillColor = color
     }
+    
+    private func noFill() {
+        P5DrawingSettings.instance.fillColor = UIColor.clear.cgColor
+    }
+    
+    private func stroke(_ color: CGColor) {
+        P5DrawingSettings.instance.strokeColor = color
+    }
 }
 
 extension P5Renderer {
@@ -76,7 +88,7 @@ extension P5Renderer {
     
     private func line(_ x1: CGFloat, _ y1: CGFloat, _ x2: CGFloat, _ y2: CGFloat) {
         guard let context else { return }
-        context.setStrokeColor(UIColor.black.cgColor)
+        context.setStrokeColor(P5DrawingSettings.instance.strokeColor)
         context.beginPath()
         context.move(to: .init(x: x1, y: y1))
         context.addLine(to: .init(x: x2, y: y2))
@@ -98,8 +110,21 @@ extension P5Renderer {
     
     private func circle(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat) {
         guard let context else { return }
-        context.setFillColor(P5DrawingSettings.instance.fillColor)
-        context.fillEllipse(in: .init(x: x, y: y, width: r, height: r))
+        // update the coordinates to draw from the center of the circle
+        // rather than from the upper left corner
+        let x = x - r
+        let y = y - r
+        
+        let fillColor = P5DrawingSettings.instance.fillColor
+        if fillColor != UIColor.clear.cgColor {
+            context.setFillColor(P5DrawingSettings.instance.fillColor)
+            context.fillEllipse(in: .init(x: x, y: y, width: r*2, height: r*2))
+        }
+        let strokeColor = P5DrawingSettings.instance.strokeColor
+        if strokeColor != UIColor.clear.cgColor {
+            context.setStrokeColor(strokeColor)
+            context.strokeEllipse(in: .init(x: x, y: y, width: r*2, height: r*2))
+        }
     }
 }
 

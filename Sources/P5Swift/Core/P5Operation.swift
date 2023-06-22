@@ -9,6 +9,8 @@ import CoreGraphics
 
 enum P5Operation {
     case fill(CGColor)
+    case noFill
+    case stroke(CGColor)
     
     case background(CGColor)
     case line(CGFloat, CGFloat, CGFloat, CGFloat)
