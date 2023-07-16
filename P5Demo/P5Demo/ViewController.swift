@@ -13,7 +13,8 @@ class ViewController: UIViewController {
         FractalOrganicTree(ofSize: view.frame.size),
         GameOfLife(ofSize: view.frame.size),
         Starfield(ofSize: view.frame.size),
-        FourierSeries(ofSize: view.frame.size)
+        FourierSeries(ofSize: view.frame.size),
+        ToothPicks(ofSize: view.frame.size),
     ]
     
     override func viewDidLoad() {
@@ -30,6 +31,8 @@ class ViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
         title = "Examples"
+        
+        navigationController?.navigationBar.backgroundColor = .white
     }
 }
 
